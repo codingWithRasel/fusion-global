@@ -64,12 +64,14 @@ const DynamicSections = () => {
     let message = sections
       .map((section) =>
         section.selectedValue
-          ? `@*${section.selectedValue.slice(-3)}: ${section.text}*৳` // Add @ and format the amount
+          ? `_@${section.selectedValue.slice(-3)}: *${parseFloat(
+              section.text
+            ).toLocaleString("en-IN")}*৳_` // Add @ and format the amount
           : "DSO Number: Not Selected"
       )
       .join("\n");
 
-    message += `\nTotal: ${total}৳`; // Format the total with ৳
+    message += `\n\n*Total: ${total.toLocaleString("en-IN")}*৳`; // Format the total with ৳
 
     const url = `whatsapp://send?text=${encodeURIComponent(message)}`;
 

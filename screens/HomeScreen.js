@@ -90,7 +90,7 @@ const Home = () => {
     }*\nCRM:- *${inputs.crm}*\nPre_Due:- *${inputs.preDue}*\nCash Support:- *${
       inputs.cashSupport
     }*\nCash:- *${inputs.cash}*\nReturn:- *${inputs.returnVal}*\n${
-      total > 50 ? "Due" : "Adv"
+      total === 0 ? "😊" : total > 50 ? "Due" : "Adv"
     }:*${Math.abs(total)}*\nNB:- *${inputs.note}*`;
 
     Alert.alert(
